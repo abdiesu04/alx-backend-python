@@ -37,7 +37,7 @@ class Seed:
                 password="Pass1234!",
                 database="ALX_prodev"
             )
-            print("Succe     return connectionssfully connected to the 'ALX_prodev' database.")
+            print("Successfully connected to the 'ALX_prodev' database.")
             return connection
         except mysql.connector.Error as err:
             print(f"Error: {err}")
@@ -96,10 +96,12 @@ class Seed:
             connection = Seed.connect_to_prodev()
             if connection:
                 Seed.create_table(connection)
-                data_gen = Seed.data_generator('user_data.csv')
+                data_gen = Seed.data_generator('./user_data.csv')
                 Seed.insert_data(connection, data_gen)
                 connection.close()
 
 # To call the seeding method:
 seed_instance = Seed()
 seed_instance.seed()
+
+
