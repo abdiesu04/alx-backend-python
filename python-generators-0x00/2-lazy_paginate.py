@@ -1,5 +1,5 @@
-from seed import Seed
 import mysql.connector
+from seed import Seed
 
 def paginate_users(connection, page_size, offset):
     try:
