@@ -1,15 +1,16 @@
 import mysql.connector
 from seed import Seed
 from functools import wraps
+from datetime import datetime
 
 # Decorator for logging
 def logqueries(fun):
     @wraps(fun)
     def wrapper(*args, **kwargs):
-        print("Pre logging")
-        res  = fun(*args, **kwargs)
+        print(f"Pre logging: {datetime.now()}")
+        res = list(fun(*args, **kwargs))
+        print(f"Post logging: {datetime.now()}")
         return res
-        print("Post logging")
     return wrapper
 
 @logqueries
@@ -22,7 +23,7 @@ def fetch_all_users(queries):
             row = cursor.fetchone()
             if row is None:
                 break
-            yield row  # Yielding rows from the database
+            yield row 
     except mysql.connector.Error as err:
         print(f"Error fetching user data: {err}")
     finally:
@@ -31,5 +32,5 @@ def fetch_all_users(queries):
 
 # Call the generator function
 users = fetch_all_users("SELECT * FROM user_data")
-for user in users:
-    print(user)
+# for user in users:
+#     print(user)
