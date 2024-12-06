@@ -102,6 +102,5 @@ class Seed:
 
 # To call the seeding method:
 seed_instance = Seed()
-seed_instance.seed()
-
+# seed_instance.seed()
 
