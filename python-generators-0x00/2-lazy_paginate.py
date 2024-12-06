@@ -27,6 +27,8 @@ def lazy_paginate(page_size):
         offset += page_size
 
 if connection:
-    for user in lazy_paginate(2):
-        print(user)
-connection.close()
+    try:
+        for user in lazy_paginate(2):
+            print(user)
+    finally:
+        connection.close()
