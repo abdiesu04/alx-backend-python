@@ -19,6 +19,7 @@ def batch_processing(batch_size):
         # Process the filtered users
         for user in filtered_users:
             print(user)
+            return user
 
 # Example usage:
 batch_processing(10)
