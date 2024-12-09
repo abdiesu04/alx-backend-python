@@ -1,6 +1,10 @@
 from seed import Seed
 
 class DatabaseConnection:
+    def __init__(self):
+        self.conn = None
+        self.cursor = None
+
     def __enter__(self):
         self.conn = Seed.connect_to_prodev()
         self.cursor = self.conn.cursor()
