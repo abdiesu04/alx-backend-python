@@ -1,16 +1,11 @@
-import mysql.connector
+import sqlite3
 
 class DatabaseConnection:
     def __init__(self, db_name):
         self.db_name = db_name
 
     def __enter__(self):
-        self.conn = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Pass1234!",
-            database=self.db_name
-        )
+        self.conn = sqlite3.connect(self.db_name)
         self.cursor = self.conn.cursor()
         return self.cursor
 
@@ -23,9 +18,9 @@ class DatabaseConnection:
         self.conn.close()
 
 if __name__ == "__main__":
-    db_name = 'ALX_prodev'
+    db_name = 'example.db'
     with DatabaseConnection(db_name) as cursor:
-        cursor.execute("SELECT * FROM user_data")
+        cursor.execute("SELECT * FROM users")
         results = cursor.fetchall()
         for row in results:
             print(row)
