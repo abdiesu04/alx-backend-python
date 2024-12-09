@@ -1,11 +1,8 @@
-import sqlite3
+from seed import Seed
 
 class DatabaseConnection:
-    def __init__(self, db_name):
-        self.db_name = db_name
-
     def __enter__(self):
-        self.conn = sqlite3.connect(self.db_name)
+        self.conn = Seed.connect_to_prodev()
         self.cursor = self.conn.cursor()
         return self.cursor
 
@@ -18,9 +15,8 @@ class DatabaseConnection:
         self.conn.close()
 
 if __name__ == "__main__":
-    db_name = 'example.db'
-    with DatabaseConnection(db_name) as cursor:
-        cursor.execute("SELECT * FROM users")
+    with DatabaseConnection() as cursor:
+        cursor.execute("SELECT * FROM user_data")
         results = cursor.fetchall()
         for row in results:
             print(row)
