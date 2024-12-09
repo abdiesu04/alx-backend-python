@@ -20,7 +20,7 @@ class DatabaseConnection:
 
 if __name__ == "__main__":
     with DatabaseConnection() as cursor:
-        cursor.execute("SELECT * FROM user_data")
+        cursor.execute("SELECT * FROM users")
         results = cursor.fetchall()
         for row in results:
             print(row)
