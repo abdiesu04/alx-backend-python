@@ -21,10 +21,8 @@ class TestAccessNestedMap(unittest.TestCase):
         ("nested_key", {"a": {"b": 2}}, ("a",), {"b": 2}),
         ("nested_deep_key", {"a": {"b": 2}}, ("a", "b"), 2),
     ])
-    def test_access_nested_map(self, name, nested_map, path, expected):
+    def test_access_nested_map(self, description, nested_map, path, expected):
         self.assertEqual(access_nested_map(nested_map, path), expected)
-
-  
 
 
 if __name__ == "__main__":
