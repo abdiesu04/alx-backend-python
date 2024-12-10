@@ -1,6 +1,6 @@
+#!/usr/bin/env python3
 from parameterized import parameterized
 import unittest
-
 
 def access_nested_map(nested_map, path):
     """
