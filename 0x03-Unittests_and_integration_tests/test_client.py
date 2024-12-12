@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import unittest
 from unittest.mock import patch
 from parameterized import parameterized
@@ -8,7 +9,7 @@ class TestGithubOrgClient(unittest.TestCase):
         ("google", {"login": "google"}),
         ("abc", {"login": "abc"})
     ])
-    @patch("client.get_json")  # Correctly mocking `get_json` in `client.py`
+    @patch("client.get_json") 
     def test_org(self, org_name, expected_output, mock_get_json):
         # Set the mock's return value
         mock_get_json.return_value = expected_output
