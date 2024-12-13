@@ -12,6 +12,25 @@ from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
+    """
+    Test suite for the GithubOrgClient class.
+
+    This class contains unit tests for the following methods:
+    - test_org: Tests the `org` property of the GithubOrgClient class.
+    - test_public_repos_url: Tests the `_public_repos_url` property of the GithubOrgClient class.
+    - test_public_repos: Tests the `public_repos` method of the GithubOrgClient class.
+
+    Methods:
+    -------
+    test_org(org_name, expected_output, mock_get_json):
+        Tests that the `org` property returns the expected output and that the `get_json` function is called with the correct URL.
+
+    test_public_repos_url(org_name, expected_url, mock_org):
+        Tests that the `_public_repos_url` property returns the expected URL.
+
+    test_public_repos(mock_public_repos_url, mock_get_json):
+        Tests that the `public_repos` method returns the expected list of repository names and that the `get_json` function is called with the correct URL.
+    """
     @parameterized.expand([
         ("google", {"login": "google"}),
         ("abc", {"login": "abc"})
@@ -37,7 +56,10 @@ class TestGithubOrgClient(unittest.TestCase):
         ("google", "https://api.github.com/orgs/google/repos"),
         ("abc", "https://api.github.com/orgs/abc/repos")
     ])
-    @patch("client.GithubOrgClient.org", new_callable=unittest.mock.PropertyMock)
+    @patch(
+        "client.GithubOrgClient.org",
+        new_callable=unittest.mock.PropertyMock
+    )
     def test_public_repos_url(self, org_name, expected_url, mock_org):
         # Mocked payload for the org property
         mock_org.return_value = {"repos_url": expected_url}
@@ -50,7 +72,8 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, expected_url)
 
     @patch("client.get_json")
-    @patch("client.GithubOrgClient._public_repos_url", new_callable=unittest.mock.PropertyMock)
+    @patch("client.GithubOrgClient._public_repos_url",
+           new_callable=unittest.mock.PropertyMock)
     def test_public_repos(self, mock_public_repos_url, mock_get_json):
         # Mocked payload for the get_json return value
         mock_get_json.return_value = [
