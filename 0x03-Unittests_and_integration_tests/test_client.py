@@ -17,19 +17,27 @@ class TestGithubOrgClient(unittest.TestCase):
 
     This class contains unit tests for the following methods:
     - test_org: Tests the `org` property of the GithubOrgClient class.
-    - test_public_repos_url: Tests the `_public_repos_url` property of the GithubOrgClient class.
-    - test_public_repos: Tests the `public_repos` method of the GithubOrgClient class.
+    - test_public_repos_url: Tests the `_public_repos_url` property of the
+      GithubOrgClient class.
+    - test_public_repos: Tests the `public_repos` method of the
+      GithubOrgClient class.
 
     Methods:
-    -------
+        Tests that the `org` property returns the expected output and that
+        the `get_json` function is called with the correct URL.
     test_org(org_name, expected_output, mock_get_json):
-        Tests that the `org` property returns the expected output and that the `get_json` function is called with the correct URL.
+        Tests that the `org` property returns the expected output and that
+        the `get_json` function is called with the correct URL.
 
-    test_public_repos_url(org_name, expected_url, mock_org):
-        Tests that the `_public_repos_url` property returns the expected URL.
+        Tests that the `public_repos` method returns the expected list of
+        repository names and that the `get_json` function is called with the
+        correct URL.
+        correct URL.
 
     test_public_repos(mock_public_repos_url, mock_get_json):
-        Tests that the `public_repos` method returns the expected list of repository names and that the `get_json` function is called with the correct URL.
+        Tests that the `public_repos` method returns
+        the expected list of repository names and that the
+        `get_json` function is called with the correct URL.
     """
     @parameterized.expand([
         ("google", {"login": "google"}),
