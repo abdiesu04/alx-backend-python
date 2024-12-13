@@ -60,10 +60,3 @@ class GithubOrgClient:
             return False
         return has_license
     
-
-# Example usage of GithubOrgClient
-if __name__ == "__main__":
-    client = GithubOrgClient("google")
-    print("Organization:", client.org)  # Fetch and print the organization details
-    print("Public Repos:", client.public_repos())  # Fetch and print the list of public repositories
-    print("Public Repos with MIT license:", client.public_repos(license="mit"))  # Fetch and print the list of public repositories with MIT license
