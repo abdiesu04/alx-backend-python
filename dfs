@@ -1,0 +1,51 @@
+[33m5d6c540[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Refactor integration tests in test_client.py: implement parameterized class for TestIntegrationGithubOrgClient to enhance test coverage and organization
+[33m5afb0ca[m Refactor integration tests in test_client.py: implement TestIntegrationGithubOrgClient with improved setup and teardown methods; enhance public_repos tests for better coverage
+[33m6e18517[m Refactor integration tests in test_client.py: update TestIntegrationGithubOrgClient to use MockResponse for better clarity and maintainability
+[33mb51aeb2[m Refactor GithubOrgClient: simplify _public_repos_url method and enhance has_license method; add integration tests for public_repos
+[33m9e27820[m Add license validation test to GithubOrgClient: implement test_has_license method with parameterized inputs and detailed docstring
+[33mbd0deff[m Refactor test documentation in test_client.py: enhance method docstrings for clarity and improve overall formatting
+[33m4e56f63[m Refactor test documentation in test_client.py: improve formatting and enhance clarity of method descriptions
+[33m7d01abc[m Enhance test suite for GithubOrgClient: add detailed docstring and improve code formatting
+[33m440b46d[m Refactor test_client.py: improve docstring, format code, and enhance mock assertions
+[33m9df31dc[m Add shebang to test_client.py and format imports
+[33mbe0edf0[m Enhance tests for GithubOrgClient: update public_repos_url mock and add test for public_repos method
+[33m42c5c01[m Add parameterized test for public_repos_url in GithubOrgClient
+[33m37c74f7[m Add shebang to test_client.py and ensure proper mocking of get_json
+[33m5957c8b[m Refactor tests for GithubOrgClient: streamline mocking and enhance validation for organization data retrieval
+[33mcf19539[m Implement tests for GithubOrgClient methods and enhance organization data retrieval
+[33md5f7f17[m Implement GithubOrgClient with methods to fetch organization details and public repositories
+[33m8649235[m Add memoization utility and corresponding tests in test_utils.py
+[33m66a11e3[m Add tests for get_json utility and mock requests in test_utils.py
+[33m103c129[m Implement access_nested_map utility and update tests for KeyError handling
+[33m383f108[m Remove commented-out parameterized tests for KeyError handling in access_nested_map
+[33me10a7bb[m Add tests for KeyError handling in access_nested_map function
+[33m0aad7dc[m Refactor test cases in test_utils.py for access_nested_map to use parameterized tests
+[33m5f9ee5e[m Rename test parameter in access_nested_map test for clarity
+[33m2b7a979[m Update README.md to remove setup and usage sections; refactor test cases in test_utils.py for access_nested_map
+[33m8c0af50[m Add README.md for unittests and integration tests documentation
+[33mee42d69[m Refactor unit tests for access_nested_map utility using parameterized tests
+[33m41682ba[m Add .gitignore and implement access_nested_map utility with unit tests
+[33m98bd19b[m Add asynchronous user fetching functionality with aiosqlite
+[33mbbc6eea[m Update SQL query to select from 'users' table instead of 'user_data'
+[33m2209ccf[m Initialize connection and cursor attributes in DatabaseConnection class
+[33m63025e7[m Refactor database connection to use Seed class and enhance error handling in context managers
+[33ma450e52[m Refactor database connection to use MySQL and implement custom query execution context manager
+[33me774314[m Add database connection context manager and seeding functionality
+[33mbb2a1a7[m Add caching and database connection decorators for user retrieval
+[33md0fac11[m Add decorators for database connection management, transaction handling, and retry logic
+[33me124630[m Add transactional decorators for database operations on user data
+[33m5731bb8[m Add decorator for database connection management and user retrieval function
+[33m781b3d1[m Enhance logging in logqueries decorator to include timestamps for pre and post execution
+[33mb5125eb[m added decorator function for fetch use function
+[33ma438dcb[m Add logging decorator and database seeding functionality
+[33m2c0995c[m Add generator function to stream user ages from database
+[33m8133542[m Update SQL query in paginate_users to select all columns from user_data
+[33m0cbad8d[m Ensure connection is closed after lazy pagination with try-finally block
+[33md0e68ea[m Refactor lazy pagination functions to remove connection parameter and establish connection within the function
+[33m0b70c1e[m Fix import order in lazy pagination script
+[33m74ef73e[m Add lazy pagination for user data and update seed script
+[33md0e7b79[m Fix batch_processing function to return the first user after processing
+[33mbed428d[m Add implemented Batch processing Large Data
+[33m5709fbf[m Add seed script for database setup and data insertion
+[33m44ac4fb[m Add seed script for database setup and data insertion
+[33m03fce1e[m Add initial README and seed script files
