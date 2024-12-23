@@ -9,5 +9,5 @@ router.register(r'messages', MessageViewSet, basename='message')
 
 # Include the router URLs in the urlpatterns
 urlpatterns = [
-    path('api/', include(router.urls)),  # Adds "api/" prefix to the app's routes
+    path('', include(router.urls)),  # Ensures the router's URLs are included
 ]
