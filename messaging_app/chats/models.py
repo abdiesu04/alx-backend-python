@@ -18,6 +18,18 @@ class User(AbstractUser):
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='guest')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    # Override the default related_name for groups and permissions
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='custom_user_groups',  # Unique related_name to avoid conflicts
+        blank=True
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='custom_user_permissions',  # Unique related_name to avoid conflicts
+        blank=True
+    )
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
@@ -25,11 +37,12 @@ class User(AbstractUser):
         db_table = 'user'
         indexes = [
             models.Index(fields=['email']),
-        ]   
+        ]
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
+
 class Conversation(models.Model):
     conversation_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     participants = models.ManyToManyField(User, related_name="conversations")
