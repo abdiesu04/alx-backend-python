@@ -5,7 +5,7 @@ class UserSerializer(serializers.ModelSerializer):
     extra_field = serializers.CharField(required=False)
     method_field = serializers.SerializerMethodField()
     
-    def get_method_field(self, obj):
+    def get_method_field(self):
         return "example"
 
     class Meta:
