@@ -7,9 +7,13 @@ class User(AbstractUser):
     user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=150, null=False)
     last_name = models.CharField(max_length=150, null=False)
-    password = models.CharField(max_length=128, null=False)
     email = models.EmailField(unique=True, null=False)
     phone_number = models.CharField(max_length=15, null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+    status_message = models.CharField(max_length=255, null=True, blank=True)
+    is_online = models.BooleanField(default=False)
+    last_seen = models.DateTimeField(null=True, blank=True)
+    
     ROLE_CHOICES = [
         ('guest', 'Guest'),
         ('host', 'Host'),
@@ -41,6 +45,7 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
 
 
 class Conversation(models.Model):
